@@ -17,6 +17,7 @@ function formatPrice(amount) {
 }
 
 function loadFavorites() {
+  // Favorites persist across pages, and invalid stored data falls back to an empty list.
   try {
     const saved = JSON.parse(localStorage.getItem("dastarhanFavorites") || "[]");
     return Array.isArray(saved) ? saved : [];
@@ -230,6 +231,7 @@ function bindReservationForm() {
   if (!form) return;
   const dateInput = form.elements.date;
   dateInput.min = getLocalDateISO();
+  // Show field-level messages and keep submission under JavaScript control.
   form.addEventListener("input", (event) => {
     if (event.target.matches("input, select, textarea")) {
       showFieldError(event.target, "");
@@ -268,6 +270,13 @@ document.addEventListener("DOMContentLoaded", () => {
       menuButton.setAttribute("aria-expanded", String(isOpen));
     });
   }
+  const backToTop = document.querySelector(".back-top");
+  if (backToTop) {
+    backToTop.addEventListener("click", (event) => {
+      event.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  }
   const search = document.querySelector("#menuSearch");
   const category = document.querySelector("#categoryFilter");
   const favoritesFilter = document.querySelector("#favoritesFilter");
@@ -282,6 +291,7 @@ document.addEventListener("DOMContentLoaded", () => {
       favoritesFilter.firstChild.textContent = next ? "Show All " : "Show Favorites ";
       renderDishes();
     });
+    // Delegation keeps buttons working after search and filter redraw the cards.
     document.querySelector("#menuResults").addEventListener("click", (event) => {
       const button = event.target.closest("button[data-action]");
       if (!button) return;

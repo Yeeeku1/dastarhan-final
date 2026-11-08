@@ -18,6 +18,7 @@ A continuation of the Dastarhan Kazakh restaurant website created for the SE-252
 - `contact.html` — Contact and visit information
 - `styles.css` — Shared responsive design and light/dark themes
 - `app.js` — Menu data, DOM rendering, interactions, and booking validation
+- `.github/workflows/pages.yml` — Publishes the site from `main` to GitHub Pages
 
 ## Endterm features
 
