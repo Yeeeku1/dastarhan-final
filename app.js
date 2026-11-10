@@ -3,8 +3,8 @@ class JsonStore {
   read() {
     try {
       const value = JSON.parse(localStorage.getItem(this.key));
-      return value === null ? structuredClone(this.fallback) : value;
-    } catch { return structuredClone(this.fallback); }
+      return value === null ? JSON.parse(JSON.stringify(this.fallback)) : value;
+    } catch { return JSON.parse(JSON.stringify(this.fallback)); }
   }
   write(value) {
     try { localStorage.setItem(this.key, JSON.stringify(value)); return true; }

@@ -12,7 +12,7 @@ This guide prepares the group for an individual oral defence where the teacher a
 
 ### HTML and page structure
 
-- **Semantic HTML:** Elements such as `header`, `nav`, `main`, `section`, `article`, `form`, and `footer describe the role of content. They improve structure, accessibility, and maintainability. The shared page shell uses semantic landmarks.
+- **Semantic HTML:** Elements such as `header`, `nav`, `main`, `section`, `article`, `form`, and `footer` describe the role of content. They improve structure, accessibility, and maintainability. The shared page shell uses semantic landmarks.
 - **Attributes, IDs, and classes:** Attributes provide extra element information. An ID identifies one element on a page, for example the weather status; classes group elements for shared styling, such as menu cards.
 - **Forms:** Labels connect to controls by matching `for` and `id`. Input types like `email`, `date`, and `number` give suitable browser controls. `required`, `min`, and `max` provide basic constraints.
 - **Table:** The menu price list uses `table`, `thead`, `tbody`, `th`, and `td`. A table is appropriate for relationships between dishes, descriptions, and prices.
