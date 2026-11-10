@@ -1,6 +1,6 @@
 # Dastarhan Restaurant — Final Project
 
-A final continuation of the group’s Dastarhan midterm and endterm website. The project keeps its Kazakh restaurant topic, group, six-page structure, responsive design, and earlier interactions. The final version adds live weather data, object-oriented JavaScript, saved celebration plans, and persistent menu ordering.
+A final continuation of the group’s earlier Dastarhan website. The project keeps its Kazakh restaurant topic, group, six-page structure, responsive design, and earlier interactions. The final version adds live weather data, object-oriented JavaScript, saved celebration plans, and persistent menu ordering.
 
 ## Group
 
@@ -73,6 +73,6 @@ Every member should be ready to explain the whole project. Use the theory-only b
 
 ## Published project
 
-- Repository: https://github.com/Yeeeku1/dastarhan-midterm
-- Website: https://yeeeku1.github.io/dastarhan-midterm/
+- Repository: https://github.com/Yeeeku1/dastarhan-final
+- Website: https://yeeeku1.github.io/dastarhan-final/
 
