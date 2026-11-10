@@ -158,6 +158,222 @@ These topics are especially likely based on the group’s recent defence report.
 - **Limitations of localStorage:** It is specific to one browser and device, has limited capacity, and is not a server or secure database. Clearing browser data removes it. This is why the project calls the order and plans local samples.
 - **Invalid stored data:** Saved JSON can be missing, malformed, or the wrong shape. The `JsonStore` catches parse errors and the features filter and validate data before using it.
 
+## Full oral question bank
+
+Practice answering these aloud. The English answers are designed to be short enough to say naturally; the Chinese lines clarify the idea. A teacher may phrase the same concept differently.
+
+### HTML and forms
+
+1. **What is the difference between HTML, CSS, and JavaScript?**  
+   “HTML structures the content, CSS controls its appearance and layout, and JavaScript adds behavior. In our site, HTML defines the menu and planner, CSS makes them responsive, and JavaScript filters dishes and saves plans.”  
+   中文：HTML 是结构，CSS 是样式布局，JavaScript 是交互行为。
+
+2. **Why use semantic elements instead of using `div` for everything?**  
+   “Semantic elements communicate the purpose of a section. `nav`, `main`, and `footer` make our page easier to understand for browsers, screen readers, and developers. A `div` is still useful as a generic container when no semantic element fits.”  
+   中文：语义标签说明内容用途；div 是通用容器。
+
+3. **What is the difference between an ID and a class?**  
+   “An ID identifies one unique element on a page. A class can be shared by many elements. We use IDs to find specific controls like the weather status and classes to style repeated cards.”  
+   中文：ID 通常唯一，class 可重复使用。
+
+4. **Why should a form label be connected to its input?**  
+   “A connected label explains what the control asks for and lets a visitor click the label to focus the input. It also gives assistive technology a clear accessible name.”  
+   中文：label 提升可访问性，也更容易点击和聚焦输入框。
+
+5. **Why is the menu price list an HTML table?**  
+   “A table is appropriate when information has row and column relationships. Each menu row connects one dish with its description and price. We use header cells so those relationships are clear.”  
+   中文：菜单每行是一个菜品，每列对应名称、描述、价格，适合用表格。
+
+6. **What is the difference between native and custom form validation?**  
+   “Native validation comes from HTML attributes like `required`, `type=email`, `min`, and `max`. Our JavaScript adds custom checks and field-level messages. A production server must validate again because browser checks can be bypassed.”  
+   中文：HTML 原生验证快速方便，JS 能做更具体的规则；真实服务端仍必须再验证。
+
+### CSS, layout, Bootstrap, and responsive design
+
+7. **Explain the CSS box model.**  
+   “The box model consists of content, padding, border, and margin. Our global `border-box` rule includes padding and border inside the declared width, which makes layouts easier to size.”  
+   中文：盒模型由内容、内边距、边框、外边距组成。
+
+8. **When would you choose Flexbox instead of Grid?**  
+   “Flexbox is best for arranging items in one direction, such as a navigation row. Grid is useful for two-dimensional rows and columns, such as our dish-card layout.”  
+   中文：Flexbox 擅长单方向排列；Grid 擅长行列布局。
+
+9. **What do media queries do?**  
+   “Media queries apply CSS rules only when a condition, such as viewport width, is true. Our tablet and mobile breakpoints stack columns and adjust cards so content fits narrow screens.”  
+   中文：媒体查询按屏幕条件切换样式，让布局适应手机和电脑。
+
+10. **How does Bootstrap help this project?**  
+    “Bootstrap provides a responsive grid and utility classes, so we can build common layouts quickly. Our About page uses `row`, `col-md-4`, and spacing utilities; our own stylesheet supplies the restaurant’s visual theme.”  
+    中文：Bootstrap 提供网格和现成工具类，本项目再用自己的 CSS 定制品牌风格。
+
+11. **Explain the positioning values used on the site.**  
+    “Sticky positioning keeps the navigation near the top while scrolling. Fixed positioning keeps the back-to-top button in the viewport. Relative positioning creates a local reference box, and absolute positioning places an overlay label inside it.”  
+    中文：sticky 随滚动吸顶，fixed 固定在视口，relative 建立定位参照，absolute 依据参照摆放。
+
+12. **What is CSS specificity?**  
+    “Specificity helps decide which matching CSS rule wins when declarations conflict. An ID selector is generally more specific than a class selector, and a class selector is generally more specific than an element selector. We keep selectors simple to avoid override conflicts.”  
+    中文：选择器优先级决定冲突时哪条样式生效；通常 ID > class > 元素。
+
+### JavaScript, DOM, and events
+
+13. **What is the DOM?**  
+    “The DOM is the browser’s object model of the HTML document. JavaScript can select, create, update, and remove elements through it. Our menu class builds dish cards and inserts them into the menu results container.”  
+    中文：DOM 是浏览器把 HTML 文档表示成的对象结构，JS 可读取和修改它。
+
+14. **What is the difference between `const` and `let`?**  
+    “Both are block-scoped declarations. `const` prevents reassignment of the binding, while `let` allows reassignment. A `const` array can still have its contents changed, so `const` does not make an object deeply immutable.”  
+    中文：两者都是块级作用域；const 不能重新赋值变量绑定，但数组内部仍可修改。
+
+15. **What is the difference between an array and an object?**  
+    “An object groups named properties for one record, like a dish’s name and price. An array stores an ordered list of values; our dishes array contains multiple dish objects.”  
+    中文：对象保存一条记录的多个字段；数组保存有顺序的多个值。
+
+16. **What is the difference between a function and a method?**  
+    “A function is a reusable block of behavior. A method is a function associated with an object or class. For example, `render()` is a method of the menu controller.”  
+    中文：方法是属于对象或类的函数。
+
+17. **What is an event listener?**  
+    “An event listener waits for an event and runs a response. Our menu listens for input, selection changes, and button clicks; the reservation form listens for submit.”  
+    中文：事件监听器等待用户或浏览器事件，然后执行相应逻辑。
+
+18. **What is event bubbling and why use event delegation?**  
+    “Many DOM events bubble from the target element to its ancestors. Event delegation uses one listener on a parent to handle matching child elements. Our menu cards are rebuilt after filtering, so delegation keeps their buttons working without adding a new listener to every card each time.”  
+    中文：事件会从目标向父元素传播；父层统一监听可处理动态生成的按钮。
+
+19. **Why call `preventDefault()` when submitting the reservation form?**  
+    “It stops the browser’s normal form navigation or submission. JavaScript can then validate the fields and show the result on the same page. This demo does not send booking details to a server.”  
+    中文：阻止浏览器默认提交后，由 JS 验证并显示反馈。
+
+20. **Why use `textContent` for API and form values?**  
+    “`textContent` inserts a value as text. It does not interpret the value as HTML markup, which reduces injection risk compared with inserting untrusted strings as HTML.”  
+    中文：textContent 将内容当文本插入，避免把外部输入解析为 HTML。
+
+### jQuery
+
+21. **What is jQuery?**  
+    “jQuery is a JavaScript library that simplifies DOM selection, traversal, event handling, and effects. We use it for the gallery lightbox and animated menu-help panel.”  
+    中文：jQuery 是 JS 库，简化选择元素、遍历、事件和动画。
+
+22. **How do jQuery selectors and traversal work in our project?**  
+    “A selector finds elements by a class, ID, or other pattern. Traversal moves from one selected element to related elements. In the gallery, we find the image and caption inside the clicked figure.”  
+    中文：selector 用条件选元素，traversal 从一个元素找相关的父子或后代元素。
+
+23. **Why use delegated jQuery events?**  
+    “A delegated event listener is attached to a stable ancestor and checks which descendant triggered the event. This can handle elements added later and reduces repeated listeners.”  
+    中文：把事件绑定在稳定父元素上，也能处理之后动态加入的子元素。
+
+24. **Could these jQuery features be written in native JavaScript?**  
+    “Yes. Modern JavaScript can select elements, listen for events, and create transitions. We keep jQuery here because it is part of the course requirement and demonstrates the library’s selectors, traversal, delegated events, and effects.”  
+    中文：可以用原生 JS 实现；项目保留 jQuery 展示课程要求。
+
+### APIs, AJAX, HTTP, and asynchronous JavaScript
+
+25. **What is the difference between a Promise and `async` / `await`?**  
+    “A Promise represents a result that may become available later. `async` / `await` is syntax for writing Promise-based code in a readable sequence. Our weather method awaits the fetch response and JSON parsing.”  
+    中文：Promise 代表未来才返回的结果；async/await 是更易读的 Promise 写法。
+
+26. **Does `fetch()` reject for every HTTP error?**  
+    “No. A network failure can reject the Promise, but an HTTP error such as 404 often still resolves to a Response. That is why our app checks `response.ok` and throws an error for an unsuccessful status.”  
+    中文：404 等 HTTP 错误通常不会让 fetch Promise 自动 reject，所以要检查 response.ok。
+
+27. **What is the difference between synchronous and asynchronous work?**  
+    “Synchronous work runs in sequence and the next step waits. Asynchronous work can wait for a network response without freezing the whole page. The weather request is asynchronous, so visitors can still use the page while it loads.”  
+    中文：同步步骤依次等待；异步网络请求等待时页面仍可响应。
+
+28. **Compare GET, POST, PUT, PATCH, and DELETE.**  
+    “GET reads a resource. POST commonly creates or submits data. PUT usually replaces a resource. PATCH partially updates it. DELETE removes it. Our current weather call uses GET; the planner is local browser storage, so it does not make these server-side CRUD requests.”  
+    中文：GET 读取，POST 提交/创建，PUT 整体替换，PATCH 局部更新，DELETE 删除。我们的 planner CRUD 是本地的。
+
+29. **What are loading, success, empty, and error states?**  
+    “They are different user-interface states for an asynchronous operation. They tell the visitor whether data is loading, available, absent, or failed. Our weather widget displays loading first, then weather values, an empty message, or an error and retry option.”  
+    中文：分别表示请求中、成功有数据、成功但无数据、请求失败，能让用户知道发生什么。
+
+30. **What is CORS?**  
+    “CORS is a browser security policy for cross-origin requests. The server must allow the website’s origin; otherwise browser JavaScript cannot read the response. Our public weather request works because the API permits it.”  
+    中文：跨域资源共享机制；服务器需要允许该来源访问，浏览器才让页面读取响应。
+
+31. **Why should API secrets not be put in front-end JavaScript?**  
+    “Front-end files are downloaded to the visitor’s browser and can be inspected. A secret key there is not secret. Private credentials should stay on a server, but our Open-Meteo request does not need a key.”  
+    中文：前端代码会被用户看到，不能保护密钥；本项目天气接口无需密钥。
+
+### OOP, CRUD, and browser storage
+
+32. **What are a class, an object, and a constructor?**  
+    “A class is a blueprint for related properties and behavior. An object is an instance created from it. A constructor initializes an instance. `CelebrationPlan` defines plan data and `new CelebrationPlan(...)` creates a plan object.”  
+    中文：类是模板，对象是实例，constructor 初始化对象属性。
+
+33. **What is encapsulation? Give a project example.**  
+    “Encapsulation groups related state and behavior behind one component. `RestaurantMenu` keeps the menu data, filtering, rendering, cart updates, and storage work together instead of spreading them across unrelated code.”  
+    中文：封装把相关状态和行为组织在一起；RestaurantMenu 管理菜单和购物篮相关功能。
+
+34. **What is CRUD?**  
+    “CRUD means Create, Read, Update, and Delete. The event planner creates plans, reads them into cards, updates a selected plan, and deletes a plan. It then recalculates the summary values.”  
+    中文：创建、读取、更新、删除；在庆祝计划管理器中都有体现。
+
+35. **How does localStorage differ from sessionStorage?**  
+    “Both store string key/value pairs for the same website origin. localStorage normally remains after the browser closes. sessionStorage is limited to the current tab session and is cleared when that session ends.”  
+    中文：两者都是字符串键值存储；localStorage 持久，sessionStorage 通常只到标签页会话结束。
+
+36. **Why is localStorage not a database for a real restaurant?**  
+    “It is local to one browser, can be cleared, does not synchronize between users, and is not a secure central record. A real booking system needs a backend database and server-side validation.”  
+    中文：本地存储不能多人共享、不能可靠同步，也不适合真实业务记录；真实预约要后端数据库。
+
+37. **How does the site handle invalid localStorage data?**  
+    “Reading or parsing can fail, and the saved value may have the wrong shape. `JsonStore` catches parsing errors and returns a default. The menu and planner also validate records before using them.”  
+    中文：JSON 可能损坏、格式不匹配；项目捕获错误并验证数据，避免页面崩溃。
+
+38. **What is the difference between client-side and server-side validation?**  
+    “Client-side validation gives immediate feedback and improves usability. It can be bypassed, so it cannot be trusted for security. A production server must repeat the validation before accepting or saving information.”  
+    中文：前端验证提高体验，但可被绕过；服务器必须再次验证。
+
+### Accessibility and project reasoning
+
+39. **How does the project support keyboard users?**  
+    “The gallery can be opened with Enter or Space and closed with Escape. Buttons and form controls are keyboard-focusable, and visible focus styles help show where the user is.”  
+    中文：图库支持键盘打开关闭，表单控件可聚焦并提供焦点提示。
+
+40. **What do `aria-live`, `aria-pressed`, and `aria-expanded` communicate?**  
+    “`aria-live` announces changing status text. `aria-pressed` communicates a toggle button’s state, such as favorites. `aria-expanded` tells assistive technology whether the menu or help panel is open.”  
+    中文：它们分别辅助播报动态状态、切换按钮状态、展开/折叠状态。
+
+41. **How would you test this project without writing new code?**  
+    “I would open every page and test the navigation, mobile menu, theme persistence, menu filtering and sorting, favorite/cart save and restore, planner create/edit/delete and refresh, invalid form messages, gallery keyboard controls, and weather error/retry behavior.”  
+    中文：逐页检查导航、响应式菜单、持久化、筛选排序、CRUD、验证、键盘图库、天气错误重试。
+
+42. **What is one limitation and how would you improve the project?**  
+    “Bookings are not sent to a server, and local plans do not sync across devices. I would add a backend API with server-side validation and a database, then use authenticated requests for real reservations.”  
+    中文：预约不提交、计划不跨设备同步；可加入服务端 API、验证和数据库。
+
+## One-minute project introduction
+
+Practise until you can say this without memorizing every word:
+
+> “Our project is Dastarhan, a Kazakh restaurant website, and it continues the same group project from the earlier terms. It has six responsive pages built with semantic HTML, CSS Grid and Flexbox, and Bootstrap utilities. The menu supports search, categories, sorting, favorites, and a sample order. We use JavaScript classes to organize the features and localStorage to restore local preferences, cart items, and celebration plans. The planner supports CRUD and shows a small summary. The home page asynchronously requests Astana weather from Open-Meteo and displays loading, success, empty, or error states. The reservation form validates the entries but does not send them to a server, so it is a front-end demonstration.”
+
+**演讲顺序：** 项目主题 → 页面/技术 → 2–3 个功能 → API/OOP/localStorage → 诚实说明预约表单限制。控制在 45–60 秒，语速放慢。
+
+## Defence demonstration sequence
+
+If asked to demonstrate the working project, use this order so every feature has a reason:
+
+1. Show the six pages and explain the shared navigation and responsive layout.
+2. On Home, point out the live weather status and explain its asynchronous loading/error behavior.
+3. On Menu, search and filter a dish, sort by price, favorite a dish, add an item, and explain that cart data is saved locally.
+4. On Reservations, submit an invalid reservation to show validation. Then show the celebration planner create, edit, delete, and dashboard behavior.
+5. On Gallery, open an image and explain keyboard controls and jQuery effects.
+6. Finish by explaining one limitation and one realistic next improvement.
+
+Do not enter personal details during a demonstration. Use example-only data in the celebration planner; it is stored in that browser.
+
+## A strong-answer checklist
+
+- Start with a direct definition; avoid a long preface.
+- Give one exact example from the project.
+- Explain why the technique is useful.
+- State whether the project actually uses the feature. For example, explain PATCH but say honestly that the planner updates localStorage instead.
+- If asked about security or production readiness, explain that client validation and localStorage are not substitutes for a backend.
+- If stuck, say: “I know the general idea. In our project, the related example is … The part we did not implement is …” Then stop rather than guessing.
+
 ## Individual practice questions
 
 The contribution headings are practice areas, not a reason to skip other sections. Every member should be able to discuss the whole site.
