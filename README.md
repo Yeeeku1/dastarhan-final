@@ -1,62 +1,78 @@
-# Dastarhan Endterm Project
+# Dastarhan Restaurant — Final Project
 
-A continuation of the Dastarhan Kazakh restaurant website created for the SE-2527 midterm. The same topic, six connected pages, responsive layout, shared navigation, and visual style are preserved. This endterm adds interactive JavaScript and jQuery features.
+A final continuation of the group’s Dastarhan midterm and endterm website. The project keeps its Kazakh restaurant topic, group, six-page structure, responsive design, and earlier interactions. The final version adds live weather data, object-oriented JavaScript, saved celebration plans, and persistent menu ordering.
 
 ## Group
 
 - Yerasyl
 - Dosymzhan
 - Dastan
+- Group: SE-2527
 
 ## Pages and files
 
-- `index.html` — Home
-- `about.html` — Our Story
-- `menu.html` — Interactive menu and semantic price table
-- `gallery.html` — Keyboard accessible photo gallery
-- `reservation.html` — Reservation request form with custom validation
-- `contact.html` — Contact and visit information
-- `styles.css` — Shared responsive design and light/dark themes
-- `app.js` — Menu data, DOM rendering, interactions, and booking validation
-- `.github/workflows/pages.yml` — Publishes the site from `main` to GitHub Pages
+- `index.html` — Home, featured dishes, and current Astana weather
+- `about.html` — Restaurant story and Kazakh hospitality
+- `menu.html` — Searchable, filterable, sortable menu, favorites, sample order, and semantic price table
+- `gallery.html` — Keyboard-accessible photo gallery and jQuery lightbox
+- `reservation.html` — Validated reservation request and celebration-plan manager
+- `contact.html` — Contact and visit details
+- `styles.css` — Shared design, Bootstrap-compatible layout, themes, and responsive breakpoints
+- `data.js` — Menu records and weather API URL
+- `app.js` — JavaScript classes, API handling, DOM rendering, validation, CRUD, storage, and jQuery interactions
+- `DEFENCE-STUDY-GUIDE.md` — Theory-only oral defence review in English and Chinese
+- `.github/workflows/pages.yml` — GitHub Pages deployment workflow
 
-## Endterm features
+## Features
 
-- Menu search and course filters built from a JavaScript dishes array
-- Favorite dishes saved in browser local storage
-- Sample order with add, remove, clear, item count, and live estimated total
-- Light/dark theme switch saved between pages
-- Gallery lightbox with click, Enter, Space, and Escape support
-- Expandable menu help panel using jQuery animation
-- Reservation form validation for name, email, phone, guest count, date, and time, with field-level messages and a success state
-- Responsive menu and gallery controls for desktop and mobile
+### Continued from the previous project
 
-## How to try the features
+- Six connected pages with a shared navigation bar and footer
+- Responsive layout using semantic HTML, CSS Flexbox, CSS Grid, Bootstrap grid and utility classes, and mobile navigation
+- Menu search, category filter, favorites, sample order, item totals, and a semantic HTML table
+- Light/dark theme preference saved in browser storage
+- Gallery lightbox with mouse and keyboard controls; jQuery animations for the lightbox and menu guide
+- Reservation form with custom field validation and accessible status messages
 
-1. Open `index.html` or visit the published GitHub Pages website.
-2. Open **Menu**. Search for a dish, choose a course, save a favorite, and add dishes to the sample order. Try removing one item and clearing the selection.
-3. Change the color theme with the navigation button. Open another page to see that the choice is remembered.
-4. Open **Gallery**. Select a photo, then close it with the close button, by clicking the dark background, or by pressing Escape. Keyboard users can focus an image and press Enter or Space.
-5. Open **Reservations**. Submit an empty or invalid form to see specific messages. Complete all fields with valid values to see the success message.
-6. On **Menu**, open “How to use the menu” to see the jQuery slide animation.
+### New final-project features
 
-## JavaScript and jQuery examples
+1. **Live weather API:** Asynchronous Open-Meteo request for Astana with loading, success, empty, error, and retry states.
+2. **OOP architecture:** `JsonStore`, `CelebrationPlan`, `WeatherWidget`, `RestaurantMenu`, `ThemeController`, `ReservationForm`, and `EventPlanner` classes.
+3. **Celebration planner CRUD:** Create, read, update, and delete gathering plans; a small dashboard counts plans, guest seats, and the next date.
+4. **Persistent sample order:** Cart items are restored, updated, and cleared through localStorage, along with favorites and theme preferences.
+5. **Advanced menu sort:** Sort filtered dishes by name or price in either direction.
 
-`app.js` uses the `dishes` and `featuredDishIds` arrays, `filter`, `map`, `forEach`, and `for...of` loops, and reusable functions such as `formatPrice`, `makeDishCard`, `getFilteredDishes`, `renderDishes`, and `validateBooking`. Event listeners respond to input, change, click, submit, and keyboard actions. The menu cards and order rows are created dynamically.
+## API information
 
-jQuery is loaded from the official jQuery CDN. The gallery and menu help use class, ID, and descendant selectors; traversal methods include `closest()`, `children()`, and `find()`. Click and keydown handlers support the gallery, and `fadeIn`, `fadeOut`, `slideDown`, and `slideUp` make the image viewer and help panel usable.
+The home page requests current temperature, apparent temperature, humidity, weather code, and wind speed from the Open-Meteo Forecast API. Coordinates are set for Astana, Kazakhstan (51.1694, 71.4491), with `Asia/Almaty` time zone. The API does not require an access key for this public use. The page checks the HTTP response, parses JSON, validates the current-data object, and safely inserts displayed values as text nodes. If a request fails, the page shows a retry control.
 
-## Suggested defence contribution plan
+API documentation: [Open-Meteo Forecast API](https://open-meteo.com/en/docs).
 
-- **Yerasyl:** explain the shared page structure, responsive layout, theme control, and navigation.
-- **Dosymzhan:** explain the dish arrays, search and category filters, favorites, and sample order.
-- **Dastan:** explain reservation validation, accessible gallery controls, and the jQuery selectors, events, and effects.
+## Data and privacy
 
-All group members should practise explaining the full project, including arrays, loops, functions, DOM changes, events, form validation, and jQuery.
+Favorites, the sample order, theme, and celebration plans are stored only in the visitor’s browser using JSON in `localStorage`. Invalid saved values fall back to safe defaults. Data is not uploaded to a server and does not synchronize between devices. The reservation form validates entries but intentionally does not send or save booking details. Do not use the sample planner for sensitive personal information.
 
-## Run and test
+## Run and try the project
 
-Open `index.html` in a browser. Bootstrap, jQuery, Google Fonts, and the Unsplash photos load from external CDNs, so an internet connection is needed. Test the menu, gallery, and reservation interactions listed above. The reservation form is a front-end demonstration: it validates the request and displays a success state but does not send or store a booking.
+1. Download or clone the repository.
+2. Open `index.html` in a browser, or visit the deployed website.
+3. Use **Menu** to search, filter, sort, save favorites, add items, remove them, and reload the page to see the sample order restored.
+4. Use the navigation theme button and open another page to see the theme preference retained.
+5. Open **Reservations** to test invalid and valid reservation form entries. Under **Plan a gathering**, save a plan, edit it, delete it, and refresh to see the saved plan persist.
+6. Open **Gallery** to select an image, use the close button, or press Escape. On **Home**, the weather panel loads from Open-Meteo; try the retry control if the service is unavailable.
 
-The project is published at: https://yeeeku1.github.io/dastarhan-midterm/
+Bootstrap, jQuery, Google Fonts, and Unsplash images are loaded from external services, so an internet connection is needed. The site is a static front-end project; bookings are not transmitted and local browser data has no shared server backup.
+
+## Suggested group contribution and defence
+
+- **Yerasyl:** shared page structure, responsive styling, weather API states, and OOP overview.
+- **Dosymzhan:** menu records, search/filter/sort, favorites, sample order, and JSON storage.
+- **Dastan:** form validation, celebration-plan CRUD, dashboard, and jQuery gallery behaviors.
+
+Every member should be ready to explain the whole project. Use the theory-only bilingual practice guide for individual preparation.
+
+## Published project
+
+- Repository: https://github.com/Yeeeku1/dastarhan-midterm
+- Website: https://yeeeku1.github.io/dastarhan-midterm/
 
