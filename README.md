@@ -20,7 +20,6 @@ A final continuation of the group’s earlier Dastarhan website. The project kee
 - `styles.css` — Shared design, Bootstrap-compatible layout, themes, and responsive breakpoints
 - `data.js` — Menu records and weather API URL
 - `app.js` — JavaScript classes, API handling, DOM rendering, validation, CRUD, storage, and jQuery interactions
-- `DEFENCE-STUDY-GUIDE.md` — Theory-only oral defence review in English and Chinese
 - `.github/workflows/pages.yml` — GitHub Pages deployment workflow
 
 ## Features
@@ -69,7 +68,7 @@ Bootstrap, jQuery, Google Fonts, and Unsplash images are loaded from external se
 - **Dosymzhan:** menu records, search/filter/sort, favorites, sample order, and JSON storage.
 - **Dastan:** form validation, celebration-plan CRUD, dashboard, and jQuery gallery behaviors.
 
-Every member should be ready to explain the whole project. Use the theory-only bilingual practice guide for individual preparation.
+Every member should be ready to explain the whole project and review the relevant course concepts individually.
 
 ## Published project
 
